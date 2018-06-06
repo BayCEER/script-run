@@ -1,0 +1,14 @@
+/var/log/script-run/*.log {
+	daily
+	missingok
+	rotate 7
+	compress
+	delaycompress
+# New default is copytruncate
+# may result in some loss of logging information
+# alternative is to run postrotate
+	copytruncate
+#	postrotate
+#		/etc/init.d/script-run restart > /dev/null
+#	endscript
+}

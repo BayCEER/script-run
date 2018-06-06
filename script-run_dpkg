@@ -1,0 +1,33 @@
+### Commented entries have reasonable defaults.
+### Uncomment to edit them.
+# Source: <source package name; defaults to package name>
+Section: misc
+Priority: optional
+# Homepage: <enter URL here; no default>
+Standards-Version: 3.9.2
+
+Package: script-run
+Version: 1.0.4
+Maintainer: Stefan Holzheu <holzheu@bayceer.uni-bayreuth.de>
+# Pre-Depends: <comma-separated list of packages>
+Depends: python (>=2.7)
+# Recommends: <comma-separated list of packages>
+# Suggests: <comma-separated list of packages>
+# Provides: <comma-separated list of packages>
+# Replaces: <comma-separated list of packages>
+# Architecture: all
+# Copyright: <copyright file; defaults to GPL2>
+# Changelog: <changelog file; defaults to a generic changelog>
+# Readme: <README.Debian file; defaults to a generic one>
+Extra-Files: test.sh
+Files: script-run /etc/init.d/
+ script-run.conf /etc/
+ logrotate.d/script-run /etc/
+ script-run_start.sh /usr/sbin/
+ script-run.py /usr/sbin/
+Description: Allows to start several scripts by init.d
+ script-run is written in python. It comes with logging and logrotate
+ Should make it easy for administrators to start arbitrary scripts on boot
+ script-run will monitor each script. If a script terminates without SIGTERM
+ to the script-run process script-run will wait five seconds and restart the
+ script. This behaviour can get configured in /etc/script-run.conf
