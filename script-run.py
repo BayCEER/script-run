@@ -65,7 +65,7 @@ def start_script(script):
     logging.info("stopped "+script+" with pid %d"%p.pid)
     
     
-print(" script-run started")
+logging.info("script-run started")
 
 with open('/etc/script-run.conf') as f:
     for line in f:
@@ -99,6 +99,7 @@ with open('/etc/script-run.conf') as f:
 
 for s in scripts:
     start_new_thread(start_script, (s,))
+    time.sleep(2)
 
 while(True):
     time.sleep(1)
